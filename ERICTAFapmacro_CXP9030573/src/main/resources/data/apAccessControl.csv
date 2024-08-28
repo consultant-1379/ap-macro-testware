@@ -1,0 +1,37 @@
+testCase,testDescription,importDataProvider,userName,password,command,expectedResult
+TORF-25562,AP:CLI - Import Project - Execute as Administrator,apAccessControl_Administrator,ap_admin,T3stP4ssw0rd,import,SUCCESS
+TORF-25562,AP:CLI - View Projects - Execute as Administrator,,ap_admin,T3stP4ssw0rd,view,SUCCESS
+TORF-25562,AP:CLI - View Project - Execute as Administrator,,ap_admin,T3stP4ssw0rd,view -p,SUCCESS
+TORF-25562,AP:CLI - View Node - Execute as Administrator,,ap_admin,T3stP4ssw0rd,view -n,SUCCESS
+TORF-25562,AP:CLI - Order Node - Execute as Administrator,,ap_admin,T3stP4ssw0rd,order -n,SUCCESS
+TORF-25562,AP:CLI - Status Node - Execute as Administrator,,ap_admin,T3stP4ssw0rd,status -n,SUCCESS
+TORF-25562,AP:CLI - Unorder Node - Execute as Administrator,,ap_admin,T3stP4ssw0rd,unorder -n,SUCCESS
+TORF-25562,AP:CLI - Order Project - Execute as Administrator,,ap_admin,T3stP4ssw0rd,order -p,SUCCESS
+TORF-25562,AP:CLI - Status Project - Execute as Administrator,,ap_admin,T3stP4ssw0rd,status -p,SUCCESS
+TORF-25562,AP:CLI - Upload Node - Execute as Administrator,,ap_admin,T3stP4ssw0rd,upload -n,SUCCESS
+TORF-25562,AP:CLI - Delete Node - Execute as Administrator,,ap_admin,T3stP4ssw0rd,delete -n,SUCCESS
+TORF-25562,AP:CLI - Delete Project - Execute as Administrator,,ap_admin,T3stP4ssw0rd,delete -p,SUCCESS
+TORF-25562,AP:CLI - Import Project - Execute as Operator,apAccessControl_Operator,ap_operator,T3stP4ssw0rd,import,SUCCESS
+TORF-25562,AP:CLI - View Projects - Execute as Operator,,ap_operator,T3stP4ssw0rd,view,SUCCESS
+TORF-25562,AP:CLI - View Project - Execute as Operator,,ap_operator,T3stP4ssw0rd,view -p,SUCCESS
+TORF-25562,AP:CLI - View Node - Execute as Operator,,ap_operator,T3stP4ssw0rd,view -n,SUCCESS
+TORF-25562,AP:CLI - Order Node - Execute as Operator,,ap_operator,T3stP4ssw0rd,order -n,SUCCESS
+TORF-25562,AP:CLI - Status Node - Execute as Operator,,ap_operator,T3stP4ssw0rd,status -n,SUCCESS
+TORF-25562,AP:CLI - Unorder Node - Execute as Operator,,ap_operator,T3stP4ssw0rd,unorder -n,SUCCESS
+TORF-25562,AP:CLI - Order Project - Execute as Operator,,ap_operator,T3stP4ssw0rd,order -p,SUCCESS
+TORF-25562,AP:CLI - Status Project - Execute as Operator,,ap_operator,T3stP4ssw0rd,status -p,SUCCESS
+TORF-25562,AP:CLI - Upload Node - Execute as Operator,,ap_operator,T3stP4ssw0rd,upload -n,SUCCESS
+TORF-25562,AP:CLI - Delete Node - Execute as Operator,,ap_operator,T3stP4ssw0rd,delete -n,SUCCESS
+TORF-25562,AP:CLI - Delete Project - Execute as Operator,,ap_operator,T3stP4ssw0rd,delete -p,SUCCESS
+TORF-25562,AP:CLI - Import Project - Execute as Security Administrator,apAccessControl_SecurityAdmin,ap_sec_admin,T3stP4ssw0rd,import,FAILED
+TORF-25562,AP:CLI - View Projects - Execute as Security Administrator,,ap_sec_admin,T3stP4ssw0rd,view,FAILED
+TORF-25562,AP:CLI - View Project - Execute as Security Administrator,,ap_sec_admin,T3stP4ssw0rd,view -p,FAILED
+TORF-25562,AP:CLI - View Node - Execute as Security Administrator,,ap_sec_admin,T3stP4ssw0rd,view -n,FAILED
+TORF-25562,AP:CLI - Order Node - Execute as Security Administrator,,ap_sec_admin,T3stP4ssw0rd,order -n,FAILED
+TORF-25562,AP:CLI - Status Node - Execute as Security Administrator,,ap_sec_admin,T3stP4ssw0rd,status -n,FAILED
+TORF-25562,AP:CLI - Unorder Node - Execute as Security Administrator,,ap_sec_admin,T3stP4ssw0rd,unorder -n,FAILED
+TORF-25562,AP:CLI - Order Project - Execute as Security Administrator,,ap_sec_admin,T3stP4ssw0rd,order -p,FAILED
+TORF-25562,AP:CLI - Status Project - Execute as Security Administrator,,ap_sec_admin,T3stP4ssw0rd,status -p,FAILED
+TORF-25562,AP:CLI - Upload Node - Execute as Security Administrator,,ap_sec_admin,T3stP4ssw0rd,upload -n,FAILED
+TORF-25562,AP:CLI - Delete Node - Execute as Security Administrator,,ap_sec_admin,T3stP4ssw0rd,delete -n,FAILED
+TORF-25562,AP:CLI - Delete Project - Execute as Security Administrator,,ap_sec_admin,T3stP4ssw0rd,delete -p,FAILED

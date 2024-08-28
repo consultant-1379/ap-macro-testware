@@ -1,0 +1,11 @@
+testDescription,importDataProvider,expectedResult,expectedResultMsg,expectedValidationMsg
+Successful validation of a project file.,ap_validate_project_success,SUCCESS,ap.validate.result.message.successful,
+Failed validation of a project file due to the extension of file is not .zip.,ap_validate_project_format_invalid_extension,FAILED,ap.validate.result.message.failure,Invalid file extension
+Failed validation of a project file due to duplicate ip addresses in project file,ap_validate_project_content_duplicate_ip,FAILED,ap.validate.result.message.failure,Duplicate ip address
+Failed validation of a project file due to duplicate nodeNames in project file,ap_validate_project_content_duplicate_nodename,FAILED,ap.validate.result.message.failure,Duplicate node name
+Failed validation of a project file due to the projectInfo.xml failed against schema.,ap_validate_project_schema_invalid_projectInfo,FAILED,ap.validate.result.message.failure,failed to validate against schema
+Failed validation of a project file due to the nodeInfo.xml failed against schema.,ap_validate_project_schema_invalid_nodeInfo,FAILED,ap.validate.result.message.failure,failed to validate against schema
+Failed validation of a project file due to the artifacts of node failed against schema.,ap_validate_project_schema_invalid_node_artifacts,FAILED,ap.validate.result.message.failure,failed to validate against schema
+Failed validation of a project file due to invalid formatted Mim Version in nodeInfo.xml file,ap_validate_project_invalid_mim_version,FAILED,ap.validate.result.message.failure,Unsupported MIM Version
+Failed validation of a project file due to unsupported Mim Version in nodeInfo.xml file,ap_validate_project_unsupported_mim_version,FAILED,ap.validate.result.message.failure,Unsupported MIM Version
+Successful validation of a project file even though the radio and transport artifacts are invalid,ap_validate_project_schema_radio&transport,SUCCESS,ap.validate.result.message.successful,

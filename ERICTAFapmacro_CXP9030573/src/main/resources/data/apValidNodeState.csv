@@ -1,0 +1,5 @@
+command,state
+Import,Ready for Order
+Order,Order Completed
+Unorder,Ready for Order
+Integrate,Integration Completed

@@ -1,0 +1,32 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AP_LTE_Macro_KGB">
+    <test name="AP LTE Macro KGB" preserve-order="true">
+        <groups>
+            <run>
+                <!-- exclude name="ignore"/ -->
+                <include name="Acceptance"/>
+                <include name="GAT"/>
+            </run>
+        </groups>
+        <classes>
+            <!-- Regression Suite -->
+            <class name="com.ericsson.oss.ap.erbs.test.cases.ImportProject"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APView"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.delete.APDeleteNode"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.delete.APDeleteProject"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APOrder"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APUnorder"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APInvalidCommands"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APInvalidNodeState"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APViewNodeStatus"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APViewProjectStatus"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APIntegrate"/>
+            <class name="com.ericsson.oss.ap.common.test.cases.download.DownloadSampleArtifactsAndSchemas"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APDownload"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APValidateERbsZip"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APAccessControl"/>
+            <!-- Development Suite -->
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APUpload"/>
+        </classes>
+    </test>
+</suite>

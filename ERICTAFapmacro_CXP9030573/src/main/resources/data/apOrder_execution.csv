@@ -1,0 +1,11 @@
+description,importDataProvider,nodeCount,commandResult,validationMsg,workflowResult
+Test Order Integration success for a project with 5 nodes,apMacroArchiveSpec:apOrderProject_5,-1,SUCCESSFUL,,SUCCESSFUL
+Test Order Integration success with valid state transition from ORDER_FAILED,apMacroArchiveSpec:apOrder_SuccessFromOrderFailedState,1,SUCCESSFUL,,SUCCESSFUL
+Test Order Integration success for single node with upgradePackage defined,apMacroArchiveSpec:apOrder_withUpgradePackage,1,SUCCESSFUL,,SUCCESSFUL
+Test Order Integration failure when upgrade package does not exist,apMacroArchiveSpec:apOrder_noUpgradePackage,1,SUCCESSFUL,,UNSUCCESSFUL
+Test Order Integration failure when the node has a name which already existing in dps,apMacroArchiveSpec:apOrder_uniqueNodeName,1,UNSUCCESSFUL,Node already exists,UNSUCCESSFUL
+Test Order Integration failure when the node has an ip address which already used in dps,apMacroArchiveSpec:apOrder_uniqueIPAddress,1,UNSUCCESSFUL,IP Address is not unique,UNSUCCESSFUL
+Test Order Integration success for single 13A node,apMacroArchiveSpec:apOrder_for_13A,1,SUCCESSFUL,,SUCCESSFUL
+Test Order Integration success for single 13B node,apMacroArchiveSpec:apOrder_for_13B,1,SUCCESSFUL,,SUCCESSFUL
+Test Order Integration success for single 14A node,apMacroArchiveSpec:apOrder_for_14A,1,SUCCESSFUL,,SUCCESSFUL
+Test Order Integration success for single 14B node,apMacroArchiveSpec:apOrder_for_14B,1,SUCCESSFUL,,SUCCESSFUL

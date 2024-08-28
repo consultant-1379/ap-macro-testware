@@ -1,0 +1,257 @@
+    -----
+    Overview
+    -----
+%{toc|toDepth=3}
+AP ERbs Macro CXP9030573 TAF Testware Overview
+
+    This documentation is for the <<<AP ERbs Macro CXP9030573>>> TAF testware.  This document outlines the test strategies and some guiding principles with
+    the use of TAF for automation.  This is not an exhaustive list nor is it a statement of fact.  Some points may engender discussion and it is
+    up to the teams to come to consensus and update this document to reflect the group thinking.
+
+Strategy
+
+    This section outlines some thoughts about TAF test strategy.  Items are not presented in any particular order.
+
+* Treat test code as first class code
+
+    The code used to implement the test suite should be of the same quality as the production code.  It should be well
+    designed and structured to take advantage of code reuse and design patterns.  This is to enable the long term maintenance
+    and, more importantly, make it relatively quick to implement tests.
+
+    Unit tests are not required for the actual test code but should be provided for any utility classes provided in the test suite.  PMD
+    analysis should be performed on all of the test code.
+
+    Test code should have the same level of documentation as the the production code.  It is good to provide good javadoc to describe what is
+    being tested and the expectations.  The javadoc can then also be used as an internal test specification.
+
+    Refactoring of the code base should be an on-going activity.
+
+* Reuse and contribute community operators and handlers
+
+    Many teams are implementing TAF tests and there is an opportunity to re-use operators, handlers and helper classes developed by other teams.  TAF
+    provides a number of default handlers and operators but if the required functionality doesn't exist then check if the TAF community have already
+     implemented the necessary functionality.
+
+   In addition, if handlers and operators are implemented as part of the test suite then look to contribute them to the community so that others
+   can also benefit.  This means that handler and operator implementations should be get as generic as possible.  Think of how the code might be
+   used by other teams and avoid AP-specific functionality.
+
+   If AP-specific functionality is required then consider extending a generic handler or operator.
+
+* SUT design influenced by testing
+
+    The testware becomes a client of the SUT and when developing in a TDD method you should be writing the code to use the SUT before it has been
+    developed.  This allows you to see how usable the APIs are and can influence their evolution.
+
+    So, while you shouldn't add in aspects to the API that are only there in order to support testing, the fact that the tests are clients of the
+    functionality help improve its overall usability.
+
+* Automate as much as possible but within reason
+
+    The more tests that are included in the test suite the better it is to automatically verify that the behaviour of the system
+    is working as expected; however, writing automated tests comes at a cost in the initial implementation and longer term
+    maintenance (especially for UI-based testing).
+
+    Candidates for automated tests should be those that are executed often (i.e. the 80% core functionality) and those tests that
+    are tedious to execute due to the effort required to manually verify.
+
+* Independent verification
+
+    Verification of the behaviour of the system is performed using independent means rather than using the SUT.  For example, if an entity
+    should be persisted by the system then rather than asking the SUT to list the entities that it knows about, query the database using another
+    tool such as CMReader.  Using the SUT to list the entities is no proof that the entities are correctly persisted (they could simply be held
+    in an in-memory cache).
+
+    The independent verification, where possible, should be performed using components that are part of the deployed system.  Try to avoid having to
+     require the use of test-only APIs or components.
+
+    If it is necessary to deploy a test-only component then it is important that its usage does not have a major impact on the system from a resource
+    point of view (memory, cpu etc.) as this would have an impact on any KPI verifications.
+
+* Cover expected failure scenarios
+
+    The tests should not only consider successful scenarios but verify correct behaviour in situations where there is a reasonable
+     expectation that something could go wrong.  It is hard to put an exact definition on what <reasonable expectation> means but
+     can be illustrated using some examples.
+
+** Invalid input
+
+    Data provided by the end-user is an obvious source of errors and therefore bad data should form part of the test scenarios.
+
+** Too much data
+
+    Similar to invalid input this scenario covers valid data but of a volume that is not what is usual for the use case.  If the typical file upload
+     is expected to be, for example, 1mb then try submitting a 10mb or larger file to verify the behaviour.  While this upload would be beyond the
+     defined characteristics of the system it would not be unreasonable for an end-user to either not be aware of the limitation or try to push the
+     boundaries.
+
+** Fundamental service not available
+
+    As the system is designed to be a highly-available system with service redundancy then there is a reasonable expectation that a service such
+    as DPS is always available.  Removing DPS as a service as part of test execution would be very difficult, especially when running on an externally
+    provided server.  Therefore, it is not of value to try to put in test cases in TAF to cover this.  In this scenario it would make more sense
+    to verify behaviour through unit and arquillian tests.
+
+** Corrupt file system
+
+    Interaction with the file system is important for AP and fundamental to some of the use cases.  Again, it is reasonable to expect that the file
+    system is in a fit state although it is possible for things to go wrong in a file system.  Trying to create a corrupted file system in order
+    to verify behaviour is not a good approach.  Unit and arquillian tests are better places to handle this type of testing assuming that file
+    system access is well encapsulated.
+
+** Missing directory
+
+    This type of scenario can fall into both categories depending on whether or not the end user has the ability to manipulate the directory
+    structure.  For example, the <<</var/tmp>>> directory can be reasonably assumed to be available as a non-root end user can not remove
+     it.  However, a directory used by AP that might be in the user's home directory should not be expected to always be there and therefore it
+     would be appropriate to test what happens when it is missing.  The removal of such a directory can safely be tested as part of the test suite.
+
+* Manual testing still valuable
+
+    Some form of manual testing is still valuable even though a fairly comprehensive automated test suite may be available.
+
+    Some of this manual testing is to verify trivial behaviour that was not worth the effort to automate while some of the
+    manual testing should be <bash> testing where 'random' actions are performed in an attempt to break the system.  Try doing
+     unusual things with the system just to see how it reacts.  If incorrect behaviour is observed then consideration should be
+     given to adding a regression test into the test suite.
+
+* Verify based on story acceptance criteria
+
+    TAF tests are use case tests of the SUT and therefore the acceptance criteria for the story defines the basic verifications required for the
+    tests.  If the behaviour is unclear for a particular scenario then the acceptance criteria for the story should be updated.
+
+    Error messages etc. should be explicitly specified in the story rather than leaving it up to the implementer of the story.  Agree the text with
+    the PO and add to the story.
+
+* TAF Context-agnostic tests
+
+    TAF supports four contexts for test execution - API, UI, CLI and REST.  AP functionality can be executed via multiple contexts and so it is
+    preferable to reuse the tests for the different contexts.
+
+    For this to work the verification process of the tests should not make assumptions about the format of the information returned.  Data returned
+    to a web client will look different to data returned from a REST call.  Either the output data must be normalized into an internal data model
+    that can be used for verification or else the operators must be able to perform the verification based on expected results defined in an
+    internal data model.
+
+    Normalization of data returned from the operators is the mechanism currently employed.
+
+* UI Testing
+
+    UI testing provides for improving the interaction with the system under test.  However, this may come with a cost for
+     maintainability.  If the UI is in flux then tests become fragile and require a lot attention.
+
+    Currently the test suite executes the use cases through RESTful submission to the script engine in a manner
+    similar to the Common CLI UI.  This is sufficient to test the back-end functionality but does not consider presentation
+    issues and also does not fully mimic how the end-user interacts with the system.
+
+* Re-using AP functionality
+
+    Sometimes it may be desirable to use AP functionality to support the execution of some other AP functionality.  An example of
+    this would be using <<<import>>> functionality so that <<<order>>> functionality can be tested.
+
+    As the <<<import>>> functionality is independently tested it is okay to simply invoke the functionality within the <<<order>>> test without
+    adding any verification of the import behaviour.  If the <<<import>>> functionality is broken then the <<<order>>> test will probably fail
+    and it will be discovered that the root cause is failing <<<import>>> behaviour.
+
+    If there is a concern about this approach then there is always the option of staging up the necessary artifacts though non-AP mechanisms.  For
+    example, CM/DPS could be use to create the necessary MOs so that <<<order>>> finds the necessary objects.
+
+* KPI monitoring
+
+** Performance
+
+    Some work has been started on performance testing.  This involves tracking execution time from the point of view of an
+    operator.  Stories describing functionality must specify the response and execution time requirements.
+
+** Resource usage
+
+    No tests currently do any tracking of resource usage of the SUT.  Tracking memory, cpu and disk usage of use cases would
+    be valuable in order to see if characteristics are regressing.
+
+** Concurrency
+
+    Some limited testing of concurrent usage is in place but more of the use cases should be executed in a concurrent manner.
+
+    Stories describing functionality must specify the expected usage of the use case.  For example, the import story might
+    specify that the system should be able to handle 5 concurrent imports of projects with a maximum of 100 nodes each and
+    a maximum zip file size of 100Mb.
+
+* Complex scenarios
+
+** Zero downtime upgrade
+
+    This is a complex scenario to test and is probably initially beyond the scope of TAF testing but if the scenario can be
+    handled it would be valuable to reduce the risk of delivering breaking functionality.  As the APIs evolve over time it
+    can become difficult to ensure that things are remaining backwards compatible.
+
+** Services unexpectedly unavailable
+
+    As ENM is being designed to be a high-availability system it should not really happen that external services such as
+     CM, DPS etc. are not available but it would be of value to verify that AP handles these situations gracefully.
+
+    However, it will be difficult to test this in anything other than a team environment (i.e local, KGB, team vApp) due to not
+    having control over the running system.
+
+    This might be better handled through unit and/or arquillian testing.
+
+* Use test suites and groups for different test environments and scenarios
+
+    TestNG is the underlying test harness used in TAF.  It provides for defining suites for tests and also allows for test methods
+    to be annotated with group identifiers.
+
+    By using the suites and groups the tests to be executed can be changed based on the target test environment.  For example, it
+    might be desirable to run some TAF tests as part of an ApXXX_Acceptance job.  The feedback should be fast in this situation
+    so only a limited set of key tests should be run.  Having an AcceptanceSuite.xml would allow for easy management of what should be tested
+    in that scenario.
+
+** Regression Suite - APERbsRegressionSuite.xml
+
+    This suite should contain all of the tests for previously released functionality and the tests should never fail.  This is the primary
+    suite used to verify that nothing is broken in the current code base.
+
+    As new functionality is delivered this suite should be updated to include the supporting tests.
+
+** Development Suite - APERbsDevelopmentSuite.xml
+
+    This suite contains any test for functionality that is currently in development and therefore test failures are expected because either the
+    test or the feature are not yet fully implemented.
+
+    Once the feature is delivered the tests should be moved from this suite to the regression suite.
+
+** KGB Suite - KGB.xml
+
+    This suite is used to specify what tests are executed as part of the KGB+n test execution.
+
+** CDB Suite - CDB.xml
+
+    This suite is used to specify what tests are executed as part of CDB test execution.
+
+TAF Execution Deployment
+
+    The following diagram shows a very high-level deployment view of the TAF execution environment.
+
+[img/TAF_Deployment.png] TAF Deployment
+
+    Operators are used within the TAF code to encapsulate access to the SUT.
+
+    REST is the primary protocol for communicating with the SUT although some ssh execution of commands is also performed.  Direct access to EJB
+    implementation of services should be avoided as that is not how the system is used by the end-user.
+
+Priority
+
+    The following is a guide to possible backlog items related to TAF testing.  These are just an opinion and should be discussed and agreed
+    by the teams.
+
+    [[1]] UI testing
+
+        Testing the functionality through the UI as the end user would do.  Be wary of UI fragility.
+
+    [[2]] Increase concurrency
+
+        Run more tests concurrently.  The number of concurrent executions depends on the anticipated use case usage.
+
+    [[3]] Resource usage tracking/verification
+
+        Start to monitor the system performance as part of test execution.
+
+        Note: this requires support from TAF which may or may not be available.

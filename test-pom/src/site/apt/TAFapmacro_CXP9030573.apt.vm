@@ -1,0 +1,203 @@
+%{toc|toDepth=2}
+AP Macro CXP9030573 TAF Testware Introduction
+
+    This documentation is for the AP Macro CXP9030573 TAF testware.  This document outlines how to execute the tests using
+    maven when you have access to the ap-macro-testware git repository.
+
+Requirements
+
+* Maven
+
+    The execution using these instructions requires the use of maven >= 3.0.4.
+
+* Git
+
+    Clone the testware repository
+    <<<git\ clone\ ssh://gerritmirror.lmera.ericsson.se:29418/OSS/com.ericsson.oss.autoprovisioning.macro.taf/ap-macro-testware.git>>>.
+
+Configuration
+
+* Testware Version
+
+** Default Version
+
+    The default version that is used for execution is the current development version which is defined
+    in the pom as <<<$\{project.version\}>>>
+
+** Maven Profile <<<testware-released>>>
+
+    This profile is used to execute a released version of the testware rather than the current development
+    version.  This is intended for use by execution through the CI framework (i.e. from Jenkins or by RV). Use
+    of the released version of the testware is activated by adding <<<-Dtestware=released>>> to the maven command line.
+    The version of the testware to be used when specifying <<<released>>> is defined in the pom and is controlled by
+    the development team.
+
+** Version Override
+
+    The testware version to be used can also be overridden by specifying a property that contains the version that should be
+    used. Add <<<-Dversion.ap.macro.testware=\<version\>>>> to the maven command line.
+
+Build
+
+* Building using maven
+    
+    In order to build the testware we need to pass in the property that skips the tests, this should be executed from the parent directory of the repo.
+
+-----
+    mvn clean install -DskipTests=true
+-----
+
+Execution
+
+* Running the tests using maven
+
+    The tests should be executed from the parent directory of the repo. You have an option to add a range of <<<taf.clusterId>>> properties to achieve different outcomes.
+
+    * DMT cluster id's are used to define the execution environment for the test suite execution, no id should be passed if running locally.
+
+-----
+-Dtaf.clusterId=73
+-----
+
+    * Suites properties (-Dsuites) are used to select a suite .  
+
+-----
+-Dsuites=APERbsDevelopmentSuite.xml
+-----
+
+* Local TAF Execution Example
+
+    Execute the following command to run TAF in you local environment and use the default values, a suite needs to be passed at all times, in the case where it isn't, all of the suites are executed.
+
+-----
+mvn clean install -Dsuites=APERbsRegressionSuite.xml
+-----
+
+* Physical MultiNode TAF Execution Example
+
+    Execute the following command, as an example, to specify the server to use in addition to any other optional properties. The number being passed in as a cluster id represents a JSON file of host properties, specified in the cluster id table below.
+
+-----
+mvn clean install -Dtaf.clusterId=56 -Dsuites=APERbsRegressionSuite.xml
+-----
+
+* Cloud TAF Execution Example
+
+    Set up your VPN connection to whatever vApp you would like to test against. Execute the following command, as an example, to specify the server to use in addition to any other optional properties. The number being passed in as a cluster id represents a JSON file of host properties, specified in the cluster id table below.
+
+-----
+mvn clean install -Dtaf.clusterId=73 -Dsuites=APERbsRegressionSuite.xml
+-----
+
+Test Reports
+
+    The primary test report is <<<test-pom/test-output/index.html>>> and a single page version of the test report is <<<test-pom/test-output/emailable-report.html>>>.
+
+    A detailed test report can be found at <<<test-pom/target/Jcat_LOGS/index.html>>>.
+
+TAF Cluster ID Table
+
+*---+---+
+| <<Environment>> | <<clusterId>> |
+*---+---+
+| vApp / Cloud | 73 |
+*---+---+
+| LMS1 | 56 |
+*---+---+
+| LMS2 | 82 |
+*---+---+
+| LMS3 | 176 |
+*---+---+
+| ScrumU Physical | 170 |
+*---+---+
+| Atlas/Odin Physical | 133 |
+*---+---+
+
+TAF Test Suites
+
+* Suite Usage
+
+    TestNG suite files are used as the main execution artefact when running TAF tests.  Tests can be added to one or more
+    suite files.  A number of suites files are defined but any number of suite files can be added.
+
+    The suite can be chosen by specifying the maven property <<<suites>>> with the value of
+    a comma-delimited list of suite names.  The full path is not required, just the file anme including the extension.
+
+-----
+    mvn clean install -Dsuites=APERbsDevelopmentSuite.xml,APERbsMyOtherSuite.xml ...
+-----
+
+** APERbsRegressionSuite.xml
+
+    This suite contains all tests that are used to verify released or completed functionality.  Tests in this suite
+    should never fail.
+
+    The tests are run sequentially as a single user.
+
+** APERbsDevelopmentSuite.xml
+
+    This suite contains tests for current development work.  The tests themselves or the functionality being tested may not be
+    complete and therefore failures may occur and are acceptable.
+
+    The tests are run sequentially as a single user.
+
+    In order to close a story the appropriate tests should be moved from this suite into the <<<APERbsRegressionSuite.xml>>>.
+
+** APERbsConcurrencySuite.xml
+
+    This suite runs tests in a concurrent manner using multiple threads as defined by a <<<taf.vusers>>> property definition in the suite file.
+
+    There may be an overlap between the tests run in this suite and those run in the regression suite, for example.
+
+** APERbsMasterSuite.xml
+
+    This is the default suite and simple contains other suites and is used to run all tests.  The following suites are included:
+
+    * <<<APERbsRegressionSuite.xml>>>
+
+    * <<<APERbsDevelopmentSuite.xml>>>
+
+    * <<<APERbsConcurrencySuite.xml>>>
+
+Property Descriptions
+
+* Database Management
+
+    These properties can be set to define what the state of the database should be prior at various points of the execution
+    cycle.
+
+    * <<<ap.taf.clear.db = true | false>>>
+
+    The database will be cleared of all projects that are in the AP namespace when this property is set to
+    <<<true>>>.  Note that this delete is handled via DPS directly and therefore any possible artifact cleanup that would occur as part of a delete
+    through the AP functionality will not happen.
+
+    The default value if not specified is <<<false>>>
+
+    * <<<ap.taf.teardown.db = true | false>>>
+
+    When this property is set to <<<true>>> all AP projects created as part of the test execution are deleted at the end of the test execution.  All
+    artifacts that already existed should remain intact.  Note that this delete is handled via DPS directly and therefore any possible artifact cleanup
+    that would occur as part of a delete through the AP functionality will not happen.
+
+    The default value if not specified is <<<false>>>
+
+* View Node Details Behaviour
+
+    The view node details use case verifies every AP node in the system and with a system with a large number of nodes the execution can take a significant
+     amount of time.  Some properties are available to help adjust this behaviour to reduce the execution time of the test.  These properties can
+     also be set on the maven command line (e.g. <<<-Dap.limit.view.node=false>>>).
+
+     * <<<ap.limit.view.node = true | false>>>
+
+        This property, when set to <<<true>>>, indicates if a filtered node details test should be executed.
+        The default value for this property is <<<true>>>
+
+     * <<<ap.limit.view.node.count.percentage = integer_value>>>
+
+        This property indicates the percentage of the nodes that should be tested.  The default value for this property is <<<5>>>
+
+     * <<<ap.limit.view.node.threshold = integer_value>>>
+
+        This property indicates the minimum number of AP nodes in the system in order for filtering to apply when <<<ap.limit.view.node = true>>>.  The
+          default value for this property is <<<500>>>

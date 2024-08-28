@@ -1,0 +1,8 @@
+description,importDataProvider,success,simulation,netsimRestoreFile
+Test Integration success with unlockCells set to false,apIntegrate_unlockCellsFalse_singleNode,true,AP_LTEE1200-V2x160-RV-FDD-LTE01,/netsim/netsimdir/AP_LTEE1200-V2x160-RV-FDD-LTE01/saved/dbs/APCleanNE_LTE01ERBS00029
+Test Integration success with unlockCells set to true,apIntegrate_unlockCellsTrue_singleNode,true,AP_LTEE1200-V2x160-RV-FDD-LTE01,/netsim/netsimdir/AP_LTEE1200-V2x160-RV-FDD-LTE01/saved/dbs/APCleanNE_LTE01ERBS00029
+Test Integration success for 13A Node with no Rn/Tn,apIntegrate_for_13A,true,AP_TAF_D144,/netsim/netsimdir/AP_TAF_D144/saved/dbs/APCleanNE_AP_TAF_D14400001
+Test Integration success for 13B Node with no Rn/Tn,apIntegrate_for_13B,true,AP_TAF_D1189,/netsim/netsimdir/AP_TAF_D1189/saved/dbs/APCleanNE_AP_TAF_D118900001
+Test Integration success for 14A Node with no Rn/Tn,apIntegrate_for_14A,true,AP_TAF_E163,/netsim/netsimdir/AP_TAF_E163/saved/dbs/APCleanNE_AP_TAF_E16300001
+Test Integration success for 14B Node with no Rn/Tn,apIntegrate_for_14B,true,AP_TAF_E1200,/netsim/netsimdir/AP_TAF_E1200/saved/dbs/APCleanNE_AP_TAF_E120000001
+Test Integration success for single node with no Rn/Tn defined,apIntegrate_noRnTn,true,AP_LTEE1200-V2x160-RV-FDD-LTE01,/netsim/netsimdir/AP_LTEE1200-V2x160-RV-FDD-LTE01/saved/dbs/APCleanNE_LTE01ERBS00029

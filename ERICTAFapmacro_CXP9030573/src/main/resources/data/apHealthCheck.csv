@@ -1,0 +1,4 @@
+serviceIdentifier,nodeIdentifier,testCase
+ap-service-core,APServ,TORF-13891_Func_1
+ap-service-macro,APServ,TORF-13891_Func_1
+ap-workflow-macro,WFS,TORF-13891_Func_1

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ericsson.oss.autoprovisioning.ap-parent</groupId>
+        <artifactId>ap-parent</artifactId>
+        <version>1.2.122</version>
+    </parent>
+
+    <groupId>com.ericsson.oss.autoprovisioning.macro.taf</groupId>
+    <artifactId>ap-macro-testware</artifactId>
+    <version>1.15.2-SNAPSHOT</version>
+    <description>ERICTAFapmacro_CXP9030573 Parent Build</description>
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- temporary work-around for issue where ap-parent appears in connection 
+            when using scm entries from parent pom -->
+        <ericsson.scm.url>
+            scm:git:[fetch=]ssh://gerritmirror-ha.lmera.ericsson.se:29418/OSS/com.ericsson.oss.autoprovisioning.macro.taf/ap-macro-testware[push=]ssh://gerrit.ericsson.se:29418/OSS/com.ericsson.oss.autoprovisioning.macro.taf/ap-macro-testware
+        </ericsson.scm.url>
+    </properties>
+
+    <scm>
+        <connection>${ericsson.scm.url}</connection>
+        <developerConnection>${ericsson.scm.url}</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <modules>
+        <module>ERICTAFapmacro_CXP9030573</module>
+        <module>test-pom</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.ericsson.cifwk</groupId>
+                <artifactId>taf-bom</artifactId>
+                <version>${version.taf}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.ericsson.cifwk</groupId>
+                <artifactId>all-taf-sdk</artifactId>
+                <version>${version.taf}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>2.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>2.3.3</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>4.0-beta4</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.11</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.ericsson.cifwk.taf</groupId>
+                    <artifactId>taf-maven-plugin</artifactId>
+                    <version>${version.taf}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.ericsson.cifwk.taf</groupId>
+                    <artifactId>taf-allure-maven-plugin</artifactId>
+                    <version>${version.taf}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.ericsson.cifwk.taf</groupId>
+                    <artifactId>taf-allure-old-maven-plugin</artifactId>
+                    <version>${version.taf}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>${target.java.version}</source>
+                        <target>${target.java.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.16</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>2.16</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>com.ericsson.cifwk.taf</groupId>
+                <artifactId>taf-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

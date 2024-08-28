@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<nodeInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   	xsi:noNamespaceSchemaLocation="erbsNodeInfo.xsd">
+    
+	<name>${name}</name>
+	<mimVersion>${mimVersion}</mimVersion>
+	<ipAddress>${ipAddress}</ipAddress>
+	<nodeType>${nodeType}</nodeType>
+	<site>${site}</site>
+
+	<#if aiAttributesPresent>
+	<autoIntegration>
+	    <#if upgradePackageName??><upgradePackageName>${upgradePackageName}</upgradePackageName></#if>
+		<unlockCells>${unlockCells}</unlockCells>
+		<uploadCVAfterConfiguration>${uploadCVAfterConfiguration}</uploadCVAfterConfiguration>
+		<uploadCVAfterIntegration>${uploadCVAfterIntegration}</uploadCVAfterIntegration>
+		<installLicense>${installLicense}</installLicense>
+	</autoIntegration>
+	</#if>
+	
+	<#if securityPresent>
+	<security>
+		<minimumSecurityLevel>${minimumSecurityLevel}</minimumSecurityLevel>
+		<optimumSecurityLevel>${optimumSecurityLevel}</optimumSecurityLevel>
+		<enrollmentMode>${enrollmentMode}</enrollmentMode>
+		<#if ipSecurityPresent>
+		<ipSecurity>
+			<ipSecLevel>${ipSecLevel}</ipSecLevel>
+			<subjectAltNameType>${subjectAltNameType}</subjectAltNameType>
+			<subjectAltName>${subjectAltName}</subjectAltName>
+		</ipSecurity>
+		</#if>
+	</security>
+	</#if>
+	
+	<artifacts>	
+		<siteBasic>${siteBasic}</siteBasic>
+		<siteInstall>${siteInstall}</siteInstall>
+		<siteEquipment>${siteEquipment}</siteEquipment>
+		<#if transport??><transport>${transport}</transport></#if>
+		<#if radio??><radio>${radio}</radio></#if>
+	</artifacts>
+</nodeInfo>

@@ -1,0 +1,25 @@
+testScenario,description,importDataProvider,projectZip,expectedResult,expectedErrorMessage,expectedValidationMessage
+ap_import,Successfully import a project with a node with Basic Security,apImport_BasicSecurity,,SUCCESS,,
+ap_import,Successfully import a project with a node with IP Security,apImport_IPSecurity,,SUCCESS,,
+ap_import,Successfully import a project with a project properties file,apImport_ProjectProperties,,SUCCESS,,
+ap_import,Successfully import a project with a node with Properties for 13A,apImport_NodeProperties13A,,SUCCESS,,
+ap_import,Successfully import a project with a node with Properties for 13B,apImport_NodeProperties13B,,SUCCESS,,
+ap_import,Successfully import a project with a node with Properties for 14A,apImport_NodeProperties14A,,SUCCESS,,
+ap_import,Successfully import a project with a node with Properties for 14B,apImport_NodeProperties14B,,SUCCESS,,
+ap_import,Successfully import a project with multiple nodes with a complete set of  artifacts,apImport_MultipleNodesWithAllArtifacts,,SUCCESS,,
+ap_import,Successfully import a project with Project AI Options Applying to Nodes,apImport_NodeAIOptionsApplied,,SUCCESS,,
+ap_import,Successfully import a project with Project AI Options Applying to Nodes,apImport_ProjectAIOptionsApplied,,SUCCESS,,
+ap_import,Successfully import a project to validate uniqueness of Project,apImport_DuplicateProject,,SUCCESS,,
+ap_import,Failed to import a project as project already exists,apImport_DuplicateProject,,FAILED,,already exists
+ap_import,Successfully import a project to validate uniqueness of Node in AP,apImport_DuplicateNodeInAP,,SUCCESS,,
+ap_import,Failed to import of a project as AP node already exists,apImport_DuplicateNodeInAP,,FAILED,,already exists in project
+ap_import,Successfully import a project to validate uniqueness of IP,apImport_DuplicateIPInAP,,SUCCESS,,
+ap_import,Failed to import a project as IP already exists,apImport_DuplicateIPInAP,,FAILED,,already in use
+ap_import,Failed to import a project file as artifacts of a node failed against schema.,ap_validate_project_schema_invalid_node_artifacts,,FAILED,,failed to validate against schema
+ap_import_validation_ip,Failed to import a project as an IP address is not unique in the Nrm database,apImport_DuplicateIPInENM,,FAILED,,already in use
+ap_import,Failed import of a project validation error project info in incorrect directory,apImport_invalid_ProjectInfo_incorrect_location,,FAILED,,No projectInfo.xml file found in
+ap_import,Failed import of a project validation error invalid file extension,ap_validate_project_format_invalid_extension,,FAILED,,Invalid file extension
+ap_import,Failed import of a project validation error invalid zip format content,apImport_InvalidProjectZip,,FAILED,,Invalid zip format content in file
+ap_import,Failed import of a project validation error no project info,apImport_invalidProject_noProjectInfo,,FAILED,,No projectInfo.xml file found in
+ap_import-validation-multiple-projectInfo-files,Failed import of a project multiple project info files stored in zip file,,InValidProjectMultipleProjectInfo.zip,FAILED,,Multiple projectInfo.xml files found in
+ap_import_validation_name,Failed to import a project as the name is not unique in the Nrm database.,apImport_DuplicateNodeInNrm,,FAILED,,Node already exists

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ericsson.oss.autoprovisioning.macro.taf</groupId>
+        <artifactId>ap-macro-testware</artifactId>
+        <version>1.15.2-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>ap-macro-testware-test-pom</artifactId>
+    <description>TAF Test Suite: Autoprovisioning LTE Macro</description>
+    <packaging>pom</packaging>
+
+    <properties>
+        <taf_testware>true</taf_testware>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ericsson.oss.autoprovisioning.macro.taf</groupId>
+            <artifactId>ERICTAFapmacro_CXP9030573</artifactId>
+            <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>sisu-guice</artifactId>
+                    <groupId>org.sonatype.sisu</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>stax</groupId>
+                    <artifactId>stax-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>15.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>4.0-beta4</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.11</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.ericsson.cifwk.taf</groupId>
+                <artifactId>taf-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>maven305</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <reporting>
+                <excludeDefaults>true</excludeDefaults>
+                <plugins>
+                    <plugin>
+                        <groupId>com.ericsson.cifwk.taf</groupId>
+                        <artifactId>taf-allure-old-maven-plugin</artifactId>
+                        <version>${taf_version}</version>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+        <profile>
+            <id>maven323</id>
+            <reporting>
+                <excludeDefaults>true</excludeDefaults>
+                <plugins>
+                    <plugin>
+                        <groupId>com.ericsson.cifwk.taf</groupId>
+                        <artifactId>taf-allure-maven-plugin</artifactId>
+                        <version>${taf_version}</version>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+    </profiles>
+</project>

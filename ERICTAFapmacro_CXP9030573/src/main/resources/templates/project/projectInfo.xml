@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="erbsProjectInfo.xsd">
+	
+	<name>${name}</name>
+	<description>${description}</description>
+	<creator>${creator}</creator>
+	<projectType>${projectType}</projectType>
+	
+	<#if aiAttributesPresent>
+	<autoIntegration>
+		<#if upgradePackageName??><upgradePackageName>${upgradePackageName}</upgradePackageName></#if>
+		<unlockCells>${unlockCells}</unlockCells>
+		<uploadCVAfterConfiguration>${uploadCVAfterConfiguration}</uploadCVAfterConfiguration>
+		<uploadCVAfterIntegration>${uploadCVAfterIntegration}</uploadCVAfterIntegration>
+		<installLicense>${installLicense}</installLicense>
+	</autoIntegration>
+	</#if>
+
+</projectInfo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<nodeInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   	xsi:noNamespaceSchemaLocation="macroNodeInfo.xsd">
+    
+	<name>${name}</name>
+	<mimVersion>${mimVersion}</mimVersion>
+	<ipAddress>${ipAddress}</ipAddress>
+	<nodeType>${nodeType}</nodeType>
+	<site>${site}</site>
+	<invalid>${nodeType}</invalid>
+	<autoIntegration>
+		<unlockCells>${unlockCells}</unlockCells>
+	</autoIntegration>
+</nodeInfo>

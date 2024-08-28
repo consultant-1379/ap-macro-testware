@@ -1,0 +1,7 @@
+<project name="AP Macro CXP9030573 TAF Testware Execution">
+    <skin>
+        <groupId>com.ericsson.nms.pres.client</groupId>
+        <artifactId>EricssonSkin</artifactId>
+        <version>1.0-RELEASE</version>
+    </skin>
+</project>

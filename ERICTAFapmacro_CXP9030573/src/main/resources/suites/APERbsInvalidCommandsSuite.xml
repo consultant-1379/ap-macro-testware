@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AP_LTE_ERbs_Macro_Invalid_Commands">
+    <test name="AP ERbs Macro Invalid Commands" preserve-order="true">
+        <groups>
+            <run>
+                <include name="Acceptance"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APInvalidCommands"/>
+        </classes>
+    </test>
+</suite>

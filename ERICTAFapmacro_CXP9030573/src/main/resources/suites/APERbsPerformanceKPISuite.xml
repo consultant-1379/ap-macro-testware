@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AP_LTE_ERbs_Macro_Performance_KPI">
+    <test name="AP ERbs Macro Performance KPI" preserve-order="true">
+        <groups>
+            <run>
+                <include name="PerformanceKPI"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APPerfomanceKPILoadBuilder"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.ImportProject"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APView" />
+            <class name="com.ericsson.oss.ap.erbs.test.cases.delete.APDeleteNode"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.delete.APDeleteProject"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APOrder"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APUnorder"/>
+        </classes>
+    </test>
+</suite>

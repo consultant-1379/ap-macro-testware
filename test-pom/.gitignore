@@ -1,0 +1,42 @@
+# Compiled source #
+*.class
+*/bin/*
+
+# Eclipse files
+.project
+.classpath
+.settings
+
+# Packages
+*.jar
+
+
+# Maven build files
+target/
+reports/
+
+# ARQ tests
+arq-perf
+
+# PMD
+.pmd
+
+#Generated files
+*.ser
+
+# Merge files
+*.orig
+
+# Backup files
+*~
+
+# Intellij files
+.idea/
+*.iml
+
+#Extra
+test-output/
+suites/
+tmp/
+*.exe
+*.dll

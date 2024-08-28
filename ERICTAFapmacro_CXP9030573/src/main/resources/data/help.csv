@@ -1,0 +1,10 @@
+command,expected
+ ,AP
+delete,DELETE
+download,DOWNLOAD
+import,IMPORT
+order,ORDER
+status,STATUS
+unorder,UNORDER
+view,VIEW
+rubbish,AP

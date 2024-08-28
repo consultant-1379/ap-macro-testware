@@ -1,0 +1,26 @@
+%{toc|toDepth=1}
+
+Introduction
+
+    This document outlines the issue delivery history of the AP TAF test ware releases.
+
+Release 1.0.10
+
+* Stories
+
+    * {{{https://cifwk-oss.lmera.ericsson.se/avs/stories/TORF-3886}TORF-3886 }} AP: CLI - Create Node with Artifacts
+
+    * {{{https://cifwk-oss.lmera.ericsson.se/avs/stories/TORF-3933}TORF-3933 }} AP: CLI - Create Project with project properties
+
+    * {{{https://cifwk-oss.lmera.ericsson.se/avs/stories/TORF-6096}TORF-6096 }} AP:CLI - View List of Project with Project Properties, LTE Macro
+
+    * {{{https://cifwk-oss.lmera.ericsson.se/avs/stories/TORF-6148}TORF-6148 }} AP: CLI - View Projects Command Help
+
+    * {{{https://cifwk-oss.lmera.ericsson.se/avs/stories/TORF-6173}TORF-6173 }} AP:CLI - View Project Details with Project Properties Only, LTE Macro
+
+    * {{{https://cifwk-oss.lmera.ericsson.se/avs/stories/TORF-6174}TORF-6174 }} AP:CLI - View Project Details with Project and Node Properties, LTE Macro
+
+    * {{{https://cifwk-oss.lmera.ericsson.se/avs/stories/TORF-6199}TORF-6199 }} AP:CLI - View Node Details with Node Properties
+
+    * {{{https://cifwk-oss.lmera.ericsson.se/avs/stories/TORF-6200}TORF-6200 }} AP:CLI - View Node Details with Node Artifacts and Node Properties
+

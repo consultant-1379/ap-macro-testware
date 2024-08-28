@@ -1,0 +1,16 @@
+testScenario,description,importDataProvider,state,expectedResult,expectedProjectDeleteMessage
+delete_project_with_node_in_valid_state,Successful delete with node in state READY_FOR_ORDER,ap_delete_project_with_valid_state,READY_FOR_ORDER,SUCCESS,Successfully deleted project %s
+delete_project_with_node_in_valid_state,Successful delete with node in state ORDER_FAILED,ap_delete_project_with_valid_state,ORDER_FAILED,SUCCESS,Successfully deleted project %s
+delete_project_with_node_in_valid_state,Successful delete with node in state INTEGRATION_COMPLETED,ap_delete_project_with_valid_state,INTEGRATION_COMPLETED,SUCCESS,Successfully deleted project %s
+delete_project_with_node_in_valid_state,Successful delete with node in state DELETE_FAILED,ap_delete_project_with_valid_state,DELETE_FAILED,SUCCESS,Successfully deleted project %s
+delete_project_with_node_in_valid_state,Successful delete with node in state INVALID_CONFIGURATION,ap_delete_project_with_valid_state,INVALID_CONFIGURATION,SUCCESS,Successfully deleted project %s
+delete_project_with_node_in_invalid_state,Failed to delete with node in state ORDER_COMPLETE,ap_delete_project_with_invalid_state,ORDER_COMPLETED,FAILED,Project nodes are not in the correct state to perform the operation
+delete_project_with_node_in_invalid_state,Failed to delete with node in state ORDER_ROLLBACK_FAILED,ap_delete_project_with_invalid_state,ORDER_ROLLBACK_FAILED,FAILED,Project nodes are not in the correct state to perform the operation
+delete_project_with_node_in_invalid_state,Failed to delete with node in state UNORDER_FAILED,ap_delete_project_with_invalid_state,UNORDER_FAILED,FAILED,Project nodes are not in the correct state to perform the operation
+delete_project_with_node_in_invalid_state,Failed to delete with node in state INTEGRATION_FAILED,ap_delete_project_with_invalid_state,INTEGRATION_FAILED,FAILED,Project nodes are not in the correct state to perform the operation
+delete_project_with_node_in_invalid_state,Failed to delete with node in state NOT_STARTED,ap_delete_project_with_invalid_state,NOT_STARTED,FAILED,Project nodes are not in the correct state to perform the operation
+delete_project_with_node_in_invalid_state,Failed to delete with node in state EDIT_STARTED,ap_delete_project_with_invalid_state,EDIT_STARTED,FAILED,Project nodes are not in the correct state to perform the operation
+delete_project_with_node_in_invalid_state,Failed to delete with node in state DELETE_STARTED,ap_delete_project_with_invalid_state,DELETE_STARTED,FAILED,Project nodes are not in the correct state to perform the operation
+delete_project_with_node_in_invalid_state,Failed to delete with node in state ORDER_STARTED,ap_delete_project_with_invalid_state,ORDER_STARTED,FAILED,Project nodes are not in the correct state to perform the operation
+delete_project_with_node_in_invalid_state,Failed to delete with node in state UNORDER_STARTED,ap_delete_project_with_invalid_state,UNORDER_STARTED,FAILED,Project nodes are not in the correct state to perform the operation
+delete_project_with_node_in_invalid_state,Failed to delete with node in state INTEGRATION_STARTED,ap_delete_project_with_invalid_state,INTEGRATION_STARTED,FAILED,Project nodes are not in the correct state to perform the operation

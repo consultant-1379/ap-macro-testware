@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AP_LTE_ERbs_Status">
+	 <test name="AP ERbs Status" preserve-order="true">
+		<groups>
+            <run>
+            	<include name="Acceptance"/>
+            	<include name="GAT"/>
+            </run>
+        </groups>
+		<classes>
+		    <class name="com.ericsson.oss.ap.erbs.test.cases.APInvalidNodeState"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APViewNodeStatus"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APViewProjectStatus"/>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APViewSummaryOfProjectStates"/>
+        </classes>
+	</test>
+</suite>

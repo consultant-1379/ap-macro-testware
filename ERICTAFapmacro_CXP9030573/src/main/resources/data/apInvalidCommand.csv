@@ -1,0 +1,46 @@
+command,testCase,testDescription,commandParameters,expectedResultMsg
+"",TORF-26918_Func_1,AP:CLI - No AP command entered,,INVALID_COMMAND
+rubbish,TORF-26918_Func_1,AP:CLI - Invalid AP command entered,,INVALID_COMMAND
+delete,TORF-8568_Func_2,AP:CLI - Delete Project - No command parameters specified,,INVALID_DELETE_SYNTAX_RESPONSE
+delete,TORF-8568_Func_2,AP:CLI - Delete Project - Invalid command parameter specified,-invalidOption projectName,INVALID_DELETE_SYNTAX_RESPONSE
+delete,TORF-8568_Func_2,AP:CLI - Delete Project - Additional command parameter specified,-p projectName -extraOption,INVALID_DELETE_SYNTAX_RESPONSE
+delete,TORF-8568_Func_2,AP:CLI - Delete Project - Project name not specified,-p,INVALID_DELETE_SYNTAX_RESPONSE
+delete,TORF-8568_Func_2,AP:CLI - Delete Project - Specified project does not exist,-p invalidProjectName,PROJECT_DOES_NOT_EXIST_RESPONSE
+delete,TORF-11285_Func_1,AP:CLI - Delete Node - Additional command parameter specified,-n nodeName -extraOption,INVALID_DELETE_SYNTAX_RESPONSE
+delete,TORF-11285_Func_1,AP:CLI - Delete Node - Node name not specified,-n,INVALID_DELETE_SYNTAX_RESPONSE
+delete,TORF-11285_Func_1,AP:CLI - Delete Node - Specified node does not exist,-n invalidNodeName,NODE_DOES_NOT_EXIST_RESPONSE
+import,TORF-2326_Func_1,AP:CLI - Import Project - No command parameters specified,,INVALID_IMPORT_SYNTAX_RESPONSE
+import,TORF-2326_Func_1,AP:CLI - Import Project - Invalid command parameter specified,-invalidOption projectName,INVALID_IMPORT_SYNTAX_RESPONSE
+order,TORF-6389_Func_1,AP:CLI - Order Node - No command parameters specified,,INVALID_ORDER_SYNTAX_RESPONSE
+order,TORF-6389_Func_1,AP:CLI - Order Node - Node name not specified,-n,INVALID_ORDER_SYNTAX_RESPONSE
+order,TORF-6389_Func_1,AP:CLI - Order Node - Invalid command parameter specified,-invalidOption nodeName,INVALID_ORDER_SYNTAX_RESPONSE
+order,TORF-6389_Func_1,AP:CLI - Order Node - Additional command parameter specified,-n nodeName -extraOption nodeName,INVALID_ORDER_SYNTAX_RESPONSE
+order,TORF-6389_Func_1,AP:CLI - Order Node - Specified node name does not exist,-n invalidNodeName,NODE_DOES_NOT_EXIST_RESPONSE
+status,TORF-15317_Func_1,AP:CLI - Status Node - No command parameters specified,,INVALID_STATUS_SYNTAX_RESPONSE
+status,TORF-15317_Func_1,AP:CLI - Status Node - Node name not specified,-n,INVALID_STATUS_SYNTAX_RESPONSE
+status,TORF-15317_Func_1,AP:CLI - Status Node - Invalid command parameter specified,-invalidOption nodeName,INVALID_STATUS_SYNTAX_RESPONSE
+status,TORF-15317_Func_1,AP:CLI - Status Node - Additional command parameter specified,-n nodeName -extraOption,INVALID_STATUS_SYNTAX_RESPONSE
+status,TORF-15317_Func_1,AP:CLI - Status Node - Specified node name does not exist,-n invalidNodeName,NODE_DOES_NOT_EXIST_RESPONSE
+status,TORF-15317_Func_1,AP:CLI - Status Project - Specified project does not exist,-p invalidProjectName,PROJECT_DOES_NOT_EXIST_RESPONSE
+unorder,TORF-2334_Func_1,AP:CLI - Unorder Node - No command parameters specified,,INVALID_UNORDER_SYNTAX_RESPONSE
+unorder,TORF-2334_Func_1,AP:CLI - Unorder Node - Node name not specified,-n,INVALID_UNORDER_SYNTAX_RESPONSE
+unorder,TORF-2334_Func_1,AP:CLI - Unorder Node - Invalid command parameter specified,-invalidOption nodeName,INVALID_UNORDER_SYNTAX_RESPONSE
+unorder,TORF-2334_Func_1,AP:CLI - Unorder Node - Additional command parameter specified,-n nodeName -extraOption nodeName,INVALID_UNORDER_SYNTAX_RESPONSE
+unorder,TORF-2334_Func_1,AP:CLI - Unorder Node - Specified node name does not exist,-n invalidNodeName,NODE_DOES_NOT_EXIST_RESPONSE
+view,TORF-6173_Func_1,AP:CLI - View Project - Project name not specified,-p,INVALID_VIEW_SYNTAX_RESPONSE
+view,TORF-6173_Func_1,AP:CLI - View Project - Invalid command parameter specified,-invalidOption projectName,INVALID_VIEW_SYNTAX_RESPONSE
+view,TORF-6173_Func_1,AP:CLI - View Project - Additional command parameter specified,-p projectName -extraOption,INVALID_VIEW_SYNTAX_RESPONSE
+view,TORF-6173_Func_1,AP:CLI - View Project - Specified project does not exist,-p invalidProjectName,PROJECT_DOES_NOT_EXIST_RESPONSE
+view,TORF-6200_Func_1,AP:CLI - View Node - Additional command parameter specified,-n nodeName -extraOption,INVALID_VIEW_SYNTAX_RESPONSE
+view,TORF-6200_Func_1,AP:CLI - View Node - Node name not specified,-n,INVALID_VIEW_SYNTAX_RESPONSE
+view,TORF-6200_Func_1,AP:CLI - View Node - Specified node does not exist,-n invalidNodeName,NODE_DOES_NOT_EXIST_RESPONSE
+upload,TORF-11283_Func_1,AP:CLI - Upload - No options,,INVALID_UPLOAD_SYNTAX_RESPONSE
+upload,TORF-11283_Func_1,AP:CLI - Upload - Missing -a option,-n node1,INVALID_UPLOAD_SYNTAX_RESPONSE
+upload,TORF-11283_Func_1,AP:CLI - Upload - Missing -n option,-a SiteBasic file:SiteBasic.xml,INVALID_UPLOAD_SYNTAX_RESPONSE
+upload,TORF-11283_Func_1,AP:CLI - Upload - Missing argument or option,-n,INVALID_UPLOAD_SYNTAX_RESPONSE
+upload,TORF-11283_Func_1,AP:CLI - Upload - Node name not specified,-a,INVALID_UPLOAD_SYNTAX_RESPONSE
+upload,TORF-11283_Func_1,AP:CLI - Upload - Missing argument or option,-n -a SiteBasic file:SiteBasic.xml,INVALID_UPLOAD_SYNTAX_RESPONSE
+upload,TORF-11283_Func_1,AP:CLI - Upload - Missing argument or option,-n -a SiteBasic,INVALID_UPLOAD_SYNTAX_RESPONSE
+upload,TORF-11283_Func_1,AP:CLI - Upload - Missing argument or option,-n -a file:SiteBasic.xml,INVALID_UPLOAD_SYNTAX_RESPONSE
+upload,TORF-11283_Func_1,AP:CLI - Upload - Missing argument or option,-n node1 -a SiteBasic,INVALID_UPLOAD_SYNTAX_RESPONSE
+upload,TORF-11283_Func_1,AP:CLI - Upload - Missing argument or option,-n node1 -a file:SiteBasic.xml,INVALID_UPLOAD_SYNTAX_RESPONSE

@@ -1,0 +1,30 @@
+description,downloadType,commandOptions,artifactType,importDataProvider,orderIntegration,result,statusMessage,filename,xmlRootTag,nodeType,nodeVersion
+Download raw artifact for a single node (Zip archive - all artifacts),artifact,-i,,apDownloadArtifact,false,SUCCESS,Successfully downloaded file,ExportArtifactMacroNode-1_raw_artifacts.zip,,,
+Download raw artifact for a single node (Zip archive - no Rn Tn),artifact,-i,,apDownloadArtifact_noRnTn,false,SUCCESS,Successfully downloaded file,ExportArtifactMacroNode-2_raw_artifacts.zip,,,
+Download projectInfo schema for erbs node type (version D.1.44 set),schema,-x,projectInfo,,false,SUCCESS,,projectInfo.xsd,,erbs,D.1.44
+Download projectInfo schema for erbs node type with no version set,schema,-x,projectInfo,,false,SUCCESS,,projectInfo.xsd,,erbs,
+Download projectInfo sample for erbs node (no sample for projectInfo),schema,-s,projectInfo,,false,FAILED,Artifact type projectInfo sample specified in the request is not supported for node type erbs with D.1.44 version,,,erbs,D.1.44
+Download erbsNodeInfo schema for erbs node type (version D.1.44),schema,-x,erbsNodeInfo,,false,SUCCESS,,erbsNodeInfo.xsd,,erbs,D.1.44
+Download erbsNodeInfo schema for latest erbs node type (version not specified),schema,-x,erbsNodeInfo,,false,SUCCESS,,erbsNodeInfo.xsd,,erbs,
+Download erbsNodeInfo sample for erbs node type (version D.1.44),schema,-s,erbsNodeInfo,,false,SUCCESS,,erbsNodeInfo.xml,,erbs,D.1.44
+Download erbsNodeInfo sample for latest erbs node type,schema,-s,erbsNodeInfo,,false,SUCCESS,,erbsNodeInfo.xml,,erbs,
+Download erbsAutoIntegration schema for erbs node type (version D.1.44),schema,-x,erbsAutoIntegration,,false,SUCCESS,,erbsAutoIntegration.xsd,,erbs,D.1.44
+Download erbsAutoIntegration schema for latest erbs node type (version not specified),schema,-x,erbsAutoIntegration,,false,SUCCESS,,erbsAutoIntegration.xsd,,erbs,
+Download erbsAutoIntegration sample for erbs node type (no sample available),schema,-s,erbsAutoIntegration,,false,FAILED,Artifact type erbsAutoIntegration sample specified in the request is not supported for node type erbs with undefined version,,,erbs,
+Download erbsProjectInfo schema for erbs node type (version D.1.44),schema,-x,erbsProjectInfo,,false,SUCCESS,,erbsProjectInfo.xsd,,erbs,D.1.44
+Download erbsProjectInfo schema for latest erbs node type (version not specified),schema,-x,erbsProjectInfo,,false,SUCCESS,,erbsProjectInfo.xsd,,erbs,
+Download erbsProjectInfo sample for erbs node type (version D.1.44),schema,-s,erbsProjectInfo,,false,SUCCESS,,erbsProjectInfo.xml,,erbs,D.1.44
+Download erbsProjectInfo sample for latest erbs node type (version not specified),schema,-s,erbsProjectInfo,,false,SUCCESS,,erbsProjectInfo.xml,,erbs,
+Download SiteBasic schema for erbs node type (version D.1.44),schema,-x,SiteBasic,,false,SUCCESS,,SiteBasic.xsd,,erbs,D.1.44
+Download SiteBasic schema for erbs node type without version (get latest),schema,-x,SiteBasic,,false,SUCCESS,,SiteBasic.xsd,,erbs,
+Download SiteBasic sample for erbs node type (version D.1.44),schema,-s,SiteBasic,,false,SUCCESS,,SiteBasic.xml,,erbs,D.1.44
+Download SiteBasic sample for latest erbs node type,schema,-s,SiteBasic,,false,SUCCESS,,SiteBasic.xml,,erbs,
+Download SiteInstallation schema for erbs node type (version D.1.44),schema,-x,SiteInstallation,,false,SUCCESS,,SiteInstallation.xsd,,erbs,D.1.44
+Download SiteInstallation schema for erbs node type without version (get latest),schema,-x,SiteInstallation,,false,SUCCESS,,SiteInstallation.xsd,,erbs,
+Download SiteInstallation sample for erbs node type (version D.1.44),schema,-s,SiteInstallation,,false,SUCCESS,,SiteInstallation.xml,,erbs,D.1.44
+Download SiteInstallation sample for latest erbs node type,schema,-s,SiteInstallation,,false,SUCCESS,,SiteInstallation.xml,,erbs,
+Download SiteEquipment schema for erbs node type (version D.1.44),schema,-x,SiteEquipment,,false,SUCCESS,,SiteEquipment.xsd,,erbs,D.1.44
+Download SiteEquipment schema for latest erbs node type (version not specified),schema,-x,SiteEquipment,,false,SUCCESS,,SiteEquipment.xsd,,erbs,
+Download SiteEquipment sample for erbs node type (version D.1.44),schema,-s,SiteEquipment,,false,SUCCESS,,SiteEquipment.xml,,erbs,D.1.44
+Download SiteEquipment sample for latest erbs node type,schema,-s,SiteEquipment,,false,SUCCESS,,SiteEquipment.xml,,erbs,
+Download SiteBasic Schema for erbs node for version less than oldest supported version,schema,-x,SiteBasic,,false,FAILED,Artifact type SiteBasic schema specified in the request is not supported for node type erbs with 3.1.189 version,,,erbs,3.1.189

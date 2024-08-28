@@ -1,0 +1,3 @@
+description,importDataProvider,orderNodeCount,commandResult
+Test Unorder Integration success after Order successful for single node with no Rn/Tn defined,apMacroArchiveSpec:apUnorder_noRnTn,1,SUCCESSFUL
+Test Unorder Integration success with valid state transition from ORDER_ROLLBACK_FAILED,apMacroArchiveSpec:apUnorder_noRnTn,1,SUCCESSFUL

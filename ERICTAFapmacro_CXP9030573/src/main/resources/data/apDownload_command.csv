@@ -1,0 +1,20 @@
+description,commandParameters,statusMessage,expectedResult
+Invalid options 1 : -x erbs -n ERBS1,-x erbs -n ERBS1,Invalid Command Syntax,FAILED
+Invalid options 2 : -s erbs -n ERBS1,-s erbs -n ERBS1,Invalid Command Syntax,FAILED
+Invalid options 3 : SiteInstall -x erbs -n ERBS1,SiteInstall -x erbs -n ERBS1,Invalid Command Syntax,FAILED
+Invalid options 4 : -x erbs -v D.1.44 -n ERBS1 SiteInstall,-x erbs -v D.1.44 -n ERBS1 SiteInstall,Invalid Command Syntax,FAILED
+Invalid options 5 : -v D.1.44 SiteInstall,-v D.1.44 SiteInstall,Invalid Command Syntax,FAILED
+Invalid options 6 : -v D.1.44 -n ERBS1 SiteInstall,-v D.1.44 -n ERBS1 SiteInstall,Invalid Command Syntax,FAILED
+Invalid options 7 : -v D.1.44 SiteInstall -s,-v D.1.44 SiteInstall -s,Invalid Command Syntax,FAILED
+Invalid options 8 : -v D.1.44 SiteInstall -x,-v D.1.44 SiteInstall -x,Invalid Command Syntax,FAILED
+Invalid options 9 : -x SiteInstall,-x SiteInstall,No schema data installed for node type SiteInstall.,FAILED
+Invalid options 10 : -s SiteInstall,-s SiteInstall,Invalid Command Syntax,FAILED
+Invalid options 11 : -x erbs SiteInstall -v,-x erbs SiteInstall -v,Invalid Command Syntax,FAILED
+Invalid options 12 : -s erbs SiteInstall -v,-s erbs SiteInstall -v,Invalid Command Syntax,FAILED
+Invalid options 13 : -x erbs SiteInstall SiteBasic,-x erbs SiteInstall SiteBasic,Invalid Command Syntax,FAILED
+Invalid options 14 : -s erbs SiteInstall SiteBasic,-s erbs SiteInstall SiteBasic,Invalid Command Syntax,FAILED
+Invalid options 15 : Download artifact - invalid number of arguments,-i -o -n ERBS1,Invalid Command Syntax,FAILED
+Invalid options 16 : Download artifact - missing artifact state parameter,-n ERBS1,Invalid Command Syntax,FAILED
+Invalid options 17 : Download artifact - missing node name parameter,-i SiteInstall ERBS1,Invalid Command Syntax,FAILED
+Invalid options 18 : Download artifact - node does not exist (raw),-i -n testNode,Node testNode does not exist,FAILED
+Invalid options 19 : Download artifact - node does not exist (generated),-o -n testNode,Node testNode does not exist,FAILED

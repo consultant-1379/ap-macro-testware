@@ -1,0 +1,4 @@
+rowIndex,description,importDataProvider,projectCount,nodeStates,commandResult
+1,View Summary of Project States with 10 projects of 10 node,apViewAllProjectsStatus,10,"10:0:0:0,0:10:0:0,0:0:10:0,0:0:0:10,5:5:0:0,0:0:5:5,0:5:5:0,5:0:0:5,1:2:3:4,3:3:3:1",SUCCESS
+2,View Summary of Project States with 1 project of 10 node,apViewAllProjectsStatus,1,"2:3:5:0",SUCCESS
+3,View Summary of Project States for empty project,apViewProjectStatus_empty,0,"0:0:0:0",SUCCESS

@@ -1,0 +1,150 @@
+[
+    {
+        "hostname": "ms1", 
+        "ip": "127.0.0.1", 
+        "ports": {
+            "ssh": 22
+        }, 
+        "nodes": [
+            {
+                "group": "Netsim", 
+                "hostname": "Netsim", 
+                "ip": "10.20.64.5", 
+                "ports": {
+                    "ssh": 22 
+                }, 
+                "type": "NETSIM",
+                "tunnel": 1, 
+                "users": [
+                    {
+                        "password": "netsim", 
+                        "username": "netsim"
+                    }
+                ]
+            }
+        ], 
+        "type": "ms", 
+        "users": [
+            {
+                "password": "12shroot", 
+                "type": "admin", 
+                "username": "root"
+            }
+        ]
+    },
+    {
+        "hostname": "sc1", 
+        "ip": "127.0.0.1", 
+        "nodes": [
+            {
+                "group": "httpd", 
+                "hostname": "httpd_su0", 
+                "ip": "127.0.0.1", 
+                "ports": {
+                    "http": 8080, 
+                    "https": 8080
+                }, 
+                "type": "http", 
+                "users": [
+                    {
+                        "password": "shroot", 
+                        "type": "admin", 
+                        "username": "root"
+                    }
+                ]
+            },
+            {
+                "group": "cmserv", 
+                "hostname": "cmserv_su0", 
+                "ip": "127.0.0.1", 
+                "ports": {
+                    "http": 8080, 
+                    "jboss_management": 9999, 
+                    "jmx": 9999, 
+                    "rmi": 4447
+                }, 
+                "type": "jboss", 
+                "users": [
+                    {
+                        "password": "shroot", 
+                        "type": "admin", 
+                        "username": "root"
+                    }, 
+                    {
+                        "password": "guestp", 
+                        "type": "oper", 
+                        "username": "guest"
+                    }
+                ]
+            }, 
+            {
+                "group": "cmserv", 
+                "hostname": "cmserv_su1", 
+                "ip": "127.0.0.1", 
+                "ports": {
+                    "http": 8080, 
+                    "jboss_management": 9999, 
+                    "jmx": 9999, 
+                    "rmi": 4447
+                }, 
+                "type": "jboss", 
+                "users": [
+                    {
+                        "password": "shroot", 
+                        "type": "admin", 
+                        "username": "root"
+                    }, 
+                    {
+                        "password": "guestp", 
+                        "type": "oper", 
+                        "username": "guest"
+                    }
+                ]
+            },
+             {
+                "group": "visnamingsb", 
+                "hostname": "visnamingsb_su0", 
+                "ip": "127.0.0.1", 
+                "ports": {
+                    "http": 50073
+                }, 
+                "type": "http", 
+                "users": [
+                    {
+                        "password": "shroot", 
+                        "type": "admin", 
+                        "username": "root"
+                    }
+                ]
+            }, 
+            {
+                "group": "wfs", 
+                "hostname": "wfs_su0", 
+                "ip": "127.0.0.1", 
+                "ports": {
+                    "http": 8180, 
+                    "jboss_management": 9999, 
+                    "jmx": 9999, 
+                    "rmi": 4447
+                }, 
+                "type": "jboss", 
+                "users": [
+                    {
+                        "password": "shroot", 
+                        "type": "admin", 
+                        "username": "root"
+                    }, 
+                    {
+                        "password": "guestp", 
+                        "type": "oper", 
+                        "username": "guest"
+                    }
+                ]
+            }
+        ], 
+        "ports": {
+            "ssh": 22
+        }, 
+        "type": "sc1"
+    }
+]

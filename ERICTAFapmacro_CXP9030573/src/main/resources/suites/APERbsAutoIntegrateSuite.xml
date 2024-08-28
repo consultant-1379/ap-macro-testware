@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AP_LTE_ERbs_Macro_Parent_Integrate">
+	 <test name="AP ERbs Macro Parent Integrate" preserve-order="true">
+		<groups>
+            <run>
+            	<include name="Acceptance"/>
+            	<include name="GAT"/>
+            </run>
+        </groups>
+		<classes>
+            <class name="com.ericsson.oss.ap.erbs.test.cases.APIntegrate"/>
+        </classes>
+	</test>
+</suite>
